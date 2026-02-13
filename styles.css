@@ -1,0 +1,424 @@
+:root {
+    --pink-primary: #ff69b4;
+    --pink-light: #ffb6d9;
+    --pink-dark: #ff1493;
+    --white: #ffffff;
+    --cream: #fffef9;
+    --gray-light: #f0f0f0;
+    --gray-medium: #d0d0d0;
+    --shadow: rgba(255, 105, 180, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Caveat', cursive;
+    background-color: var(--cream);
+    color: #333;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+#backgroundCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    color: var(--pink-primary);
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 0px var(--shadow);
+    transform: rotate(-2deg);
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #666;
+    font-family: 'Indie Flower', cursive;
+}
+
+.progress-container {
+    margin-top: 30px;
+    display: inline-block;
+    width: 100%;
+    max-width: 400px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 30px;
+    background: white;
+    border: 3px solid var(--pink-primary);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 4px 4px 0px var(--shadow);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--pink-light), var(--pink-primary));
+    width: 0%;
+    transition: width 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+}
+
+.progress-text {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.3rem;
+    color: var(--pink-dark);
+    font-weight: bold;
+}
+
+.location-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.location-card {
+    background: white;
+    border: 3px solid var(--pink-primary);
+    border-radius: 15px;
+    padding: 25px;
+    position: relative;
+    box-shadow: 6px 6px 0px var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.location-card:hover {
+    transform: translateY(-5px) rotate(1deg);
+    box-shadow: 8px 8px 0px var(--shadow);
+}
+
+.location-card.locked {
+    background: var(--gray-light);
+    border-color: var(--gray-medium);
+    opacity: 0.7;
+}
+
+.location-card.unlocked {
+    animation: unlock 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes unlock {
+    0% {
+        transform: scale(0.8) rotate(-10deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1) rotate(5deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.location-number {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background: var(--pink-primary);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 3px solid white;
+    box-shadow: 3px 3px 0px var(--shadow);
+}
+
+.location-card.locked .location-number {
+    background: var(--gray-medium);
+}
+
+.location-name {
+    font-size: 2rem;
+    color: var(--pink-dark);
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.location-card.locked .location-name {
+    color: #999;
+    filter: blur(4px);
+}
+
+.location-fact {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #555;
+    font-family: 'Indie Flower', cursive;
+}
+
+.location-card.locked .location-fact {
+    display: none;
+}
+
+.lock-icon {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.distance-info {
+    font-size: 1.2rem;
+    color: #666;
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+}
+
+.permission-prompt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.prompt-card {
+    background: white;
+    border: 4px solid var(--pink-primary);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 10px 10px 0px var(--shadow);
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+.prompt-card h2 {
+    font-size: 2.5rem;
+    color: var(--pink-primary);
+    margin-bottom: 20px;
+}
+
+.prompt-card p {
+    font-size: 1.4rem;
+    color: #666;
+    margin-bottom: 30px;
+    font-family: 'Indie Flower', cursive;
+}
+
+.sketchy-button {
+    background: var(--pink-primary);
+    color: white;
+    border: 3px solid var(--pink-dark);
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    font-family: 'Caveat', cursive;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px var(--pink-dark);
+    transition: all 0.2s ease;
+    transform: rotate(-1deg);
+}
+
+.sketchy-button:hover {
+    transform: rotate(1deg) translateY(-2px);
+    box-shadow: 6px 6px 0px var(--pink-dark);
+}
+
+.sketchy-button:active {
+    transform: rotate(0deg) translateY(0);
+    box-shadow: 2px 2px 0px var(--pink-dark);
+}
+
+.sketchy-button.small {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+}
+
+.debug-info {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid var(--pink-primary);
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 1rem;
+    box-shadow: 4px 4px 0px var(--shadow);
+    max-width: 300px;
+}
+
+.debug-info h3 {
+    font-size: 1.3rem;
+    color: var(--pink-primary);
+    margin-bottom: 10px;
+}
+
+/* Valentine Invitation Overlay */
+.invite-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--pink-light) 0%, var(--white) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.invite-card {
+    background: white;
+    border: 5px solid var(--pink-primary);
+    border-radius: 30px;
+    padding: 60px 40px;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 15px 15px 0px var(--shadow);
+    animation: floatIn 1s ease;
+    position: relative;
+}
+
+@keyframes floatIn {
+    from {
+        transform: translateY(-100px) rotate(-10deg);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.heart-animation {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+
+.invite-title {
+    font-size: 4rem;
+    color: var(--pink-primary);
+    margin-bottom: 20px;
+    text-shadow: 4px 4px 0px var(--shadow);
+    transform: rotate(-2deg);
+    line-height: 1.2;
+}
+
+.invite-message {
+    font-size: 1.8rem;
+    color: #666;
+    margin-bottom: 40px;
+    font-family: 'Indie Flower', cursive;
+}
+
+.sketchy-button.large {
+    padding: 20px 50px;
+    font-size: 2rem;
+    transform: rotate(-1deg);
+}
+
+.sketchy-button.large:hover {
+    transform: rotate(1deg) translateY(-3px) scale(1.05);
+    box-shadow: 8px 8px 0px var(--pink-dark);
+}
+
+.debug-info p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+    font-family: 'Indie Flower', cursive;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .location-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .location-card {
+        padding: 20px;
+    }
+}
