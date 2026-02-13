@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Preview Image</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f0f0f0;
+        }
+        #preview-card {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #ffb6d9 0%, #ffffff 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        #preview-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(0deg, rgba(255, 182, 217, 0.3) 0px, rgba(255, 182, 217, 0.3) 1px, transparent 1px, transparent 20px),
+                repeating-linear-gradient(90deg, rgba(255, 182, 217, 0.3) 0px, rgba(255, 182, 217, 0.3) 1px, transparent 1px, transparent 20px);
+        }
+        .heart {
+            font-size: 120px;
+            margin-bottom: 20px;
+            z-index: 1;
+        }
+        h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 100px;
+            color: #ff69b4;
+            margin: 0;
+            text-shadow: 5px 5px 0px rgba(255, 105, 180, 0.2);
+            z-index: 1;
+        }
+        p {
+            font-family: 'Caveat', cursive;
+            font-size: 50px;
+            color: #666;
+            margin-top: 20px;
+            z-index: 1;
+        }
+        .instructions {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: system-ui;
+            font-size: 14px;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="preview-card">
+        <div class="heart">💕</div>
+        <h1>Will you be my Valentine?</h1>
+        <p>A special adventure awaits...</p>
+    </div>
+    
+    <div class="instructions">
+        <strong>How to create your preview image:</strong><br><br>
+        1. Take a screenshot of the pink card above (should be 1200x630px)<br>
+        2. Upload to an image host like:<br>
+        &nbsp;&nbsp;• <a href="https://imgur.com" target="_blank">imgur.com</a><br>
+        &nbsp;&nbsp;• <a href="https://imgbb.com" target="_blank">imgbb.com</a><br>
+        &nbsp;&nbsp;• Or host it with your site<br>
+        3. Replace the url in index.html's og:image and twitter:image tags
+    </div>
+</body>
+</html>
