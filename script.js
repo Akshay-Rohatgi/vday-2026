@@ -10,7 +10,7 @@
 
 const locations = [
   { id: 1, name: "my house lol", lat: 33.66, lng: -117.80428, fact: "this is for testing purposes" },
-  { id: 2, name: "her house", lat: 33.6522412, lng: -117.8342006, fact: "this is for testing purposes" },
+  { id: 2, name: "iseb", lat: 33.6436, lng: -117.845, fact: "this is for testing purposes" },
   { id: 3, name: "3CAT", lat: 33.6977, lng: -117.8268, fact: "The District's hidden gem for handcrafted tea!" },
   { id: 4, name: "The LAB / Booth by Bryant", lat: 33.6750, lng: -117.8860, fact: "This was a former night-vision goggle factory!" },
   { id: 5, name: "Noguchi Garden", lat: 33.6889, lng: -117.8822, fact: "This is a 'hidden' 1.6-acre sculpture garden." },
