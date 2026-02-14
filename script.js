@@ -1,23 +1,23 @@
 // Location data
-// const locations = [
-//   { id: 1, name: "3CAT", lat: 33.6977, lng: -117.8268, fact: "The District's hidden gem for handcrafted tea!" },
-//   { id: 2, name: "The LAB / Booth by Bryant", lat: 33.6750, lng: -117.8860, fact: "This was a former night-vision goggle factory!" },
-//   { id: 3, name: "Noguchi Garden", lat: 33.6889, lng: -117.8822, fact: "This is a 'hidden' 1.6-acre sculpture garden." },
-//   { id: 4, name: "Holey Moley", lat: 33.6512, lng: -117.7452, fact: "Every hole is a pop-culture pun!" },
-//   { id: 5, name: "Puesto", lat: 33.6402, lng: -117.7423, fact: "The tortillas are organic blue corn from Mexico." },
-//   { id: 6, name: "Bacio di Latte", lat: 33.6510, lng: -117.7465, fact: "Authentic Italian gelato using Sonoma County milk." }
-// ];
-
 const locations = [
-  { id: 1, name: "my house lol", lat: 33.66, lng: -117.80428, fact: "this is for testing purposes" },
-  { id: 2, name: "iseb", lat: 33.6436, lng: -117.845, fact: "this is for testing purposes" },
-  { id: 3, name: "3CAT", lat: 33.6977, lng: -117.8268, fact: "The District's hidden gem for handcrafted tea!" },
-  { id: 4, name: "The LAB / Booth by Bryant", lat: 33.6750, lng: -117.8860, fact: "This was a former night-vision goggle factory!" },
-  { id: 5, name: "Noguchi Garden", lat: 33.6889, lng: -117.8822, fact: "This is a 'hidden' 1.6-acre sculpture garden." },
-  { id: 6, name: "Holey Moley", lat: 33.6512, lng: -117.7452, fact: "Every hole is a pop-culture pun!" },
-  { id: 7, name: "Puesto", lat: 33.6402, lng: -117.7423, fact: "The tortillas are organic blue corn from Mexico." },
-  { id: 8, name: "Bacio di Latte", lat: 33.6510, lng: -117.7465, fact: "Authentic Italian gelato using Sonoma County milk." }
+  { id: 1, name: "3CAT", lat: 33.6977, lng: -117.8268, fact: "The District's hidden gem for handcrafted tea!" },
+  { id: 2, name: "The LAB / Booth by Bryant", lat: 33.6750, lng: -117.8860, fact: "This was a former night-vision goggle factory!" },
+  { id: 3, name: "Noguchi Garden", lat: 33.6889, lng: -117.8822, fact: "This is a 'hidden' 1.6-acre sculpture garden." },
+  { id: 4, name: "Holey Moley", lat: 33.6512, lng: -117.7452, fact: "Every hole is a pop-culture pun!" },
+  { id: 5, name: "Puesto", lat: 33.6402, lng: -117.7423, fact: "The tortillas are organic blue corn from Mexico." },
+  { id: 6, name: "Bacio di Latte", lat: 33.6510, lng: -117.7465, fact: "Authentic Italian gelato using Sonoma County milk." }
 ];
+
+// const locations = [
+//   { id: 1, name: "my house lol", lat: 33.66, lng: -117.80428, fact: "this is for testing purposes" },
+//   { id: 2, name: "iseb", lat: 33.6436, lng: -117.845, fact: "this is for testing purposes" },
+//   { id: 3, name: "3CAT", lat: 33.6977, lng: -117.8268, fact: "The District's hidden gem for handcrafted tea!" },
+//   { id: 4, name: "The LAB / Booth by Bryant", lat: 33.6750, lng: -117.8860, fact: "This was a former night-vision goggle factory!" },
+//   { id: 5, name: "Noguchi Garden", lat: 33.6889, lng: -117.8822, fact: "This is a 'hidden' 1.6-acre sculpture garden." },
+//   { id: 6, name: "Holey Moley", lat: 33.6512, lng: -117.7452, fact: "Every hole is a pop-culture pun!" },
+//   { id: 7, name: "Puesto", lat: 33.6402, lng: -117.7423, fact: "The tortillas are organic blue corn from Mexico." },
+//   { id: 8, name: "Bacio di Latte", lat: 33.6510, lng: -117.7465, fact: "Authentic Italian gelato using Sonoma County milk." }
+// ];
 // Configuration
 const PROXIMITY_THRESHOLD_DEFAULT = 0.15; // 150 meters in km
 const PROXIMITY_THRESHOLD_CLOSE = 0.075; // 75 meters for close locations
